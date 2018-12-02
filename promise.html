@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var promise = new Promise(function (resolve, reject) {
+            console.log('已创建promise')
+            if (result === 1) {
+                resolve('成功')
+            } else {
+                reject('失败')
+            }
+        }.then(function (data) {
+            console.log(data)
+        }, function (data) {
+            console.log(data)
+        }))
+
+        function promise() {
+            var p = new Promise(function (resolve, reject) {
+                console.log('成功创建promise')
+                if (result === 1) {
+                    resolve('成功')
+                } else {
+                    reject('失败')
+                }
+            })
+            return p
+        }
+        /*调用函数*/
+        promise().then(function (data) {
+            console.log(data)
+            return '真的牛逼'
+        }).then(function (data2) {
+            console.log(data2)
+        })
+
+        let promise = new Promise(function (resolve, reject) {
+            if(result===1){
+                resolve("成功")
+            }else{
+                result("失败")
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+<script>
+        let promise=new Promise((reject,resolve)=>{
+            if(result===1){
+                resolve("成功")
+            }
+        })
+
+</script>

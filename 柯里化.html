@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //什么是柯里化 ,偏函数就是把函数的其中一个值固定,返回一个新额函数
+        var f=function(x,y){
+            return x+2*y
+        }
+        var g=function(y){
+            return f(1,y)
+        }
+    //这就是柯里化,有什么用
+        var aa=function(x){
+            return function(y){
+                return f(x,y)
+            }
+        }
+        //比如说一个可以传两次值的函数
+
+        //还有一个函数
+        var cache=[]
+        var add=function(n){
+            if(n=undefined){
+                return cache.reduce((p,n)=>p+n,0)  
+            }else{
+                cache.push(n)
+                return add
+            }
+        }
+
+        //如何写出一个将函数变成偏函数的数
+        //underscore  partial 
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<style>
+    .kejiImages{
+        width: 300px;
+        height: 200px;
+        overflow: hidden;
+        margin-top:100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagesBar>img{
+        width: 300px;
+        height: 200px;
+        
+    }
+    .imagesBar{
+        width: 1200px;
+        height: 200px;
+        display: flex;
+        align-items: flex-start; 
+        transition: all 0.5s;  
+    }
+    #btn{
+        text-align: center;
+    }
+    .red{
+        color: red;
+    }
+</style>
+<body>
+    <div class="kejiImages">
+        <div class="imagesBar">
+            <img src="images/1.jpg" alt="" >
+            <img src="images/2.jpg" alt="" >
+            <img src="images/3.jpeg" alt="">
+            <img src="images/01569658d947b2a801219c77dbcf7e.jpg@1280w_1l_2o_100sh.jpg" alt="">
+        </div>
+    </div>
+    <div id="btn">
+        <span>图片1</span>
+        <span>图片2</span>
+        <span>图片3</span>
+        <span>图片4</span>
+    </div> 
+</body>
+<script>
+    var allButtons=$("#btn>span");
+    for(let i=0;i<allButtons.length;i++){
+        $(allButtons[i]).on("click",function(x){
+            var index=$(x.currentTarget).index();
+            var x=index * -300;
+            $(".imagesBar").css({
+                transform:"translateX("+x+"px)"
+            })
+            n=index;
+            allButtons.eq(n).addClass("red").siblings(".red").removeClass("red")    
+        })
+    }
+    var n=0;
+    var size=allButtons.length;
+    allButtons.eq(n%size).trigger("click").addClass("red").siblings(".red").removeClass("red");
+    var timerId=setInterval(()=>{
+        n++;
+        allButtons.eq(n%size).trigger("click").addClass("red").siblings(".red").removeClass("red");
+    },1000)
+
+    $(".kejiImages").on("mouseenter",function(){
+        window.clearInterval(timerId)
+    })
+    $(".kejiImages").on("mouseleave",function(){
+        timerId=setInterval(()=>{
+            n++;
+            allButtons.eq(n%size).trigger("click").addClass("red").siblings(".red").removeClass("red");
+        },1000)
+    })
+    
+
+</script>
+</html>

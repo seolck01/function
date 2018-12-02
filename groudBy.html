@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function getGrade(score) {
+            return score < 60 ? 'C' :
+                score < 80 ? 'B' : 'A';
+        };
+        // 学⽣及其成绩
+        let students = [
+            { name: '张三', score: 84 },
+            { name: '李四', score: 58 },
+            { name: '王五', score: 99 },
+            { name: '赵六', score: 69 }
+        ];
+        function groudBy(students) {
+            let A = []
+            let B = []
+            let C = []
+            students.map((student) => {
+                let score = student["score"]
+                let grade = getGrade(score)
+                switch (grade) {
+                    case "A":
+                        A.unshift(student)
+                        break;
+                    case "B":
+                        B.unshift(student)
+                        break;
+                    case "C":
+                        C.unshift(student)
+                        break;
+                }
+            })
+            let object = {}
+            object["'A'"]=A
+            object["'B'"]=B
+            object["'C'"]=C
+            return object
+        }
+        let result=groudBy(students)
+        console.log(result)
+    </script>
+</body>
+
+</html>

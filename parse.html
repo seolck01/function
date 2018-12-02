@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Node(type, typeArgs) {
+            this.type = type
+            this.typeArgs = typeArgs
+        }
+        function BST() {
+            this.root = null
+            this.insert = insert
+            this.show = () => {
+                return this.root
+            }
+        }
+        function insert(type) {
+            let newNode = new Node(type, null);
+            if (this.root === null) {
+                this.root = newNode
+            } else {
+                let current = this.root
+                let parent
+                while (current) {
+                    parent = current
+                    current = current.typeArgs
+                    if (current === null) {
+                        parent.typeArgs = newNode;
+                        break
+                    }
+                }
+            }
+        }
+        const bst = new BST()
+        function parse(input) {
+            let regex = /([A-Za-z]+)/g
+            let array = input.match(regex)
+            array.map((string) => {
+                bst.insert(string)
+            })
+            return bst.show()
+        }
+        let input = "Array<Array<Array<int>>>";
+        let result = parse(input)  
+        console.log(result) 
+    </script>
+</body>
+
+</html>

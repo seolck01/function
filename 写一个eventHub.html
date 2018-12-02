@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.EventHub = {
+            events: {},
+            on(eventsName, fn) {
+                if (events[eventsName] === undefined) {
+                    events[eventsName] = []
+                }
+                events[eventsName].push(fn)
+            },
+            emit(eventsName, data) {
+                for (let key in events) {
+                    if (key === eventsName) {
+                        let fnList = eventsName[key]
+                        fnList.map((fn) => {
+                            fn.call(undefined, data)
+                        })
+                    }
+                }
+            }
+        }    
+    </script>
+</body>
+
+</html>
+
+<script>
+   
+</script>

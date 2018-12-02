@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Human{
+            constructor(name){
+                this.name=name
+            }
+            get s(){
+                return "这是一个声明"
+            }
+            run(){
+                console.log("我叫"+this.name+"我在跑")
+                return undefined
+            }
+        }
+        class Man extends Human{
+            constructor(name){
+                super(name)
+                this.gender="男"
+            }
+            get b(){
+                return "aa"
+            }
+            go(){
+                console.log("我叫"+this.name)
+            }
+        }
+        let object=new Man("刘超群")
+        console.log(object)
+
+
+       
+    </script>
+</body>
+</html>

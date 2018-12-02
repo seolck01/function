@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        function Human(name) {
+            this.name = name
+        }
+        Human.prototype.run = function () {
+            console.log("我是人类,我叫" + this.name + "我可以跑")
+        }
+        function Man(name) {
+            this.gender = "男"
+            Human.call(this, name)  //扩大Human的作用域
+        }
+        //Man.prototype.__proto__=Human.prototype  //这句话在es6中是不支持的
+        //想让一个a.__proto__指向一个新的对象,IE里面有没有这个,不给你控制,__proto__在es标准中是不存在的
+        //  所以用到了new操作符, new操作符运行的时候,做了一下的事1,产生一个新的对象, 把构造函数的作用域赋予
+        //个这个新的对象,就是   然后new fn()  把this.__proto__=FN.prototype,执行FN.call,fn里面有
+        //什么函数就执行什么
+        var f = function () { }  //这三句话是等价于上面的一句话的,而且在IE浏览器中支持
+        f.prototype = Human.prototype
+        Man.prototype = new f()
+        Man.prototype.go = function () {
+            console.log("我的工是前端")
+        }
+        let  object = new Man("你好")
+        console.log(object)
+        object.aa={"1":2}
+        let b=new Object()
+        console.log(b)
+        b["0"]=1
+        console.log(b)
+        
+
+    //上面的IE不支持ES6写法
+
+
+
+    </script>
+
+</body>
+
+</html>

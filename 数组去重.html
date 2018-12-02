@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let bb = [1, 1, 1, 9, 8, 4, 8, 9, 7, 6]
+
+        function uniq(array) {
+            let temp = []
+            for (let i = 0; i < array.length; i++) {
+                if (temp.indexOf(array[i]) === -1) {
+                    temp.push(array[i])
+                }
+            }   
+            return temp
+        }
+        console.log(uniq(bb))
+
+        Array.prototype.unique3 = function () {
+            var res = [];
+            var json = {};
+            for (var i = 0; i < this.length; i++) {
+                if (!json[this[i]]) {
+                    res.push(this[i]);
+                    json[this[i]] = 1;
+                }
+            }
+            return res;
+        }
+        var arr = [112, 112, 34, 'aa', 112, 112, 34, 'ab', 'str', 'str1'];
+        console.log(arr.unique3());
+
+
+
+    </script>
+</body>
+
+</html>

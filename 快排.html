@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 冒泡排序 */
+        let bubble = function () {
+            let array = [1, 8, 9, 7, 5, 3]
+            function bubbleSort(array) {
+                for (let i = 0; i < array.length - 1; i++) {
+                    for (let j = 0; j < array.length - 1 - i; j++) {
+                        if (array[j] > array[j + 1]) {
+                            let temp = array[j]
+                            array[j] = array[j + 1]
+                            array[j + 1] = temp;
+                        }
+                    }
+                }
+            }
+            console.log(array)
+        }
+        /*   快排 */
+        let array=[5,8,9,11,12,4,3,7,6]
+        let quick=function(array){
+            if(array.length<=1) {
+                return array
+            }
+            let pivotIndex=Math.floor(array.length/2)
+            let pivot=array.splice(pivotIndex,1)[0]
+            let left=[]
+            let right=[]
+
+            for(let i=0;i<array.length;i++){
+                if(array[i]<pivot){
+                    left.push(array[i])
+                }else{
+                    right.push(array[i])
+                }
+            }
+            return quick(left).concat([pivot],quick(right))
+        }
+        quick(array)
+        console.log(quick(array))
+    </script>
+</body>
+
+</html>

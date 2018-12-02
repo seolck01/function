@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="item1">
+
+            <div id="item2"></div>
+            <div class="item3"></div>
+            <div class="item4"></div>
+    </div>
+    
+
+    <script>
+        //封装一个getSiblings函数
+        let item2 = document.getElementById("item2")
+        Node.prototype.getSiblings = function () {
+            let allchildern = this.parentNode.children
+            console.log(allchildern)
+            let array = {
+                length: 0
+            }
+            for (let i = 0; i < allchildern.length; i++) {
+                if (allchildern[i] !== this) {
+                    array[array.length] = allchildern[i]
+                    array.length += 1
+                }
+            }
+            return array
+        }
+        console.log(item2.getSiblings.call(item2))
+
+        let a=function(){
+            
+        }
+
+    </script>
+</body>
+
+</html>

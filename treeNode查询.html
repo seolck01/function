@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let tree = {
+            id: '1',
+            label: 'fisrt',
+            children: [
+                {
+                    id: '2',
+                    label: 'second'
+                },
+                {
+                    id: '3',
+                    label: 'third',
+                    children: [
+                        {
+                            id: '4',
+                            label: 'fourth'
+                        },
+                        {
+                            id: '5',
+                            label: 'fifth'
+                        }
+                    ]
+                }
+            ]
+        };
+
+
+        function findNodeById(root, id) {
+            if (!root) {
+                return
+            }
+            var stack = []
+            stack.push(root)
+            let tempNode;
+            while (stack.length > 0) {
+                tempNode = stack.pop()
+                if (tempNode.id && tempNode.id === id) {
+                    return tempNode
+                }
+                if (tempNode.children && tempNode.children.length > 0) {
+                    var i = tempNode.children.length - 1
+                    for (i = tempNode.children.length - 1; i >= 0; i--) {
+                        stack.push(tempNode.children[i])
+                    }
+                }
+            }
+        } 
+        let result=findNodeById(tree, "4")
+        console.log(result)
+
+    </script>
+</body>
+
+</html>

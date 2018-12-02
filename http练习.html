@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //设计一个setHttpGetUrlParams()函数, 
+        var params = {
+            token: '123456',
+            tyoe: 1,
+            userId: 9527
+        }
+        var urlBase = "https://www.12306.com/api/train-search"
+        function setHttpGetUrlParams(urlBase, params) {
+            let newUrl = urlBase + "?"
+            let array = []
+            for (key in params) {
+                let value = params[key]
+                let string=key+"="+value
+                array.push(string)
+            }
+            
+            console.log(newUrl)
+        }
+        setHttpGetUrlParams(urlBase, params)
+    </script>
+</body>
+
+</html>

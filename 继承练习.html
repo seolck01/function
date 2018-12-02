@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+           function Human(name){
+               this.name=name
+           }
+           function person(name){
+               this.name=name
+               Human.call(this,name)
+           }
+           Human.prototype.where=function(){
+               console.log(this.name+"要跑路去深圳了")
+           }
+           
+           let fn=function(){
+
+           }
+           fn.prototype=Human.prototype
+           person.prototype=new fn()
+          
+           person.prototype.run=function(){
+               console.log(this.name+"要跑路了")
+           }
+           let object=new person("刘超群")
+           console.log(object)
+
+
+
+
+    </script>
+</body>
+</html>
